@@ -1,31 +1,3 @@
-Okay, this is an exciting challenge! You want to transform the existing "Enhanced Private System" dashboard into a powerful "Admin Panel" with comprehensive logging, specific content, and a wide array of command buttons, all while keeping the existing stylish UI and theme toggling.
-
-Since this is a client-side `index.html` file (HTML, CSS, JavaScript only), the "admin panel" functionality will primarily interact with the *local state* of this single browser instance. "User Logs (everyones)" will, therefore, log actions performed *within this specific browser session*. To genuinely monitor multiple users or a "main site" in a backend sense, you'd need server-side technology (Node.js, Python, PHP, etc.) and a database. However, we can create a very convincing and functional *client-side representation* of an admin panel.
-
-I will remove the `Activity Logs`, `Login History`, and `Mouse Clicker` panels and replace them with the requested admin-focused panels.
-
-Here's the updated `index.html` with your new Admin Panel features:
-
-**Key Changes Implemented:**
-
-1.  **Dashboard Renamed to Admin Panel:** Titles and main header adjusted.
-2.  **Removed Panels:** `Activity Logs`, `Login History`, `Mouse Clicker`, `Calculator Panel`, `Media Panel` have been removed from the main `panels-grid` and quickbar, simplifying the dashboard for admin focus.
-3.  **New Panels Added:**
-    *   **User Logs:** A comprehensive log of all actions, including login attempts, general activities, settings changes, command executions, downloads, etc.
-    *   **Change Logs:** Specifically tracks changes to theme, settings, and other configurations.
-    *   **Download Logs:** Records "downloads" initiated from this panel (simulated for client-side) and includes a placeholder for screenshots (client-side `html2canvas` captures *your* screen upon download action, not the user's).
-    *   **Discord Webhooks:** Displays the webhook URLs you've provided, offering a central place to view them.
-    *   **Admin Commands:** A dedicated panel with a variety of buttons to run simulated (client-side) commands.
-4.  **Enhanced Logging:** The JavaScript `logActivity` function is now more granular and distinguishes between `user_action`, `change_log`, `download_log`, `command_run`, etc., pushing them to a single `adminLogs` array and then filtering for display in their respective panels.
-5.  **Admin Command Buttons:** A wide range of command buttons are included, demonstrating how you can trigger functions from the panel (e.g., clear logs, force theme, send announcements, simulate events).
-6.  **Quickbar Updates:** New buttons in the quickbar to easily access the new admin panels.
-7.  **Webhook Integration:** Your provided Discord webhook URLs are used for various login events and system restarts. I've also added calls to `sendWebhook` for simulated admin commands.
-8.  **Panel Management:** Kept the minimize/close/resize functionality for the new panels.
-9.  **Persistent Data:** Logs and other data are stored in `localStorage` to persist across sessions.
-
----
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -4115,4 +4087,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-```
